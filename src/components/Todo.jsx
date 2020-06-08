@@ -10,7 +10,7 @@ export default function Todo({ id, name, completed }) {
         {name.toUpperCase()} - {completed ? 'Completed' : 'Pending'}
       </div>
       <label className="complete" onClick={() => dispatch(toggleTodo(id))}>
-        Complete
+        Toggle
       </label>
       <label className="delete" onClick={() => dispatch(deleteTodo(id))}>
         Delete
