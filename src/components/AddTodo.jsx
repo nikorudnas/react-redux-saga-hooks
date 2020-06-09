@@ -7,8 +7,10 @@ export default function AddTodo() {
   let [name, setName] = useState('')
 
   function submitTodo() {
-    dispatch(addTodo(name))
-    setName('')
+    if (name.trim()) {
+      dispatch(addTodo(name))
+      setName('')
+    }
   }
 
   return (
