@@ -1,22 +1,22 @@
-const todos = (state = [], action) => {
-  switch (action.type) {
+const initialState = []
+
+const todos = (state = initialState, { type, payload }) => {
+  switch (type) {
     case 'ADD_TODO':
       return [
         ...state,
         {
-          id: action.payload.id,
-          name: action.payload.name,
+          id: payload.id,
+          name: payload.name,
           completed: false,
         },
       ]
     case 'TOGGLE_TODO':
       return state.map(todo =>
-        todo.id === action.payload.id
-          ? { ...todo, completed: !todo.completed }
-          : todo
+        todo.id === payload.id ? { ...todo, completed: !todo.completed } : todo
       )
     case 'DELETE_TODO':
-      return state.filter(todo => todo.id !== action.payload.id)
+      return state.filter(todo => todo.id !== payload.id)
     default:
       return state
   }

@@ -39,3 +39,8 @@ code {
   cursor: pointer;
   opacity: 0.7;
 }
+
+.dogpic {
+  max-height: 200px;
+  border: 2px solid black;
+}

@@ -1,4 +1,4 @@
-import { takeEvery } from 'redux-saga/effects'
+import { takeLatest } from 'redux-saga/effects'
 import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from '../actionTypes'
 
 const delay = ms => new Promise(res => setTimeout(res, ms))
@@ -19,13 +19,13 @@ function* deleteTodoDispatched() {
 }
 
 export function* addTodoSaga() {
-  yield takeEvery(ADD_TODO, addTodoDispatched)
+  yield takeLatest(ADD_TODO, addTodoDispatched)
 }
 
 export function* toggleTodoSaga() {
-  yield takeEvery(TOGGLE_TODO, toggleTodoDispatched)
+  yield takeLatest(TOGGLE_TODO, toggleTodoDispatched)
 }
 
 export function* deleteTodoSaga() {
-  yield takeEvery(DELETE_TODO, deleteTodoDispatched)
+  yield takeLatest(DELETE_TODO, deleteTodoDispatched)
 }
